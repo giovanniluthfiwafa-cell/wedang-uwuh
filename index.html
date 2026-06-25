@@ -22,7 +22,7 @@
         header {
             background-color: var(--primary);
             color: white;
-            padding: 2rem 1.5rem;
+            padding: 2.5rem 1.5rem;
             text-align: center;
             box-shadow: 0 4px 6px rgba(0,0,0,0.1);
         }
@@ -31,6 +31,36 @@
             margin: 0 auto;
             padding: 2rem;
         }
+        
+        /* Gaya Baru: Visi & Misi */
+        .about-section {
+            display: flex;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
+        }
+        .about-box {
+            flex: 1;
+            min-width: 280px;
+        }
+        .about-box h3 {
+            color: var(--primary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+            margin-top: 0;
+        }
+        .about-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .about-box li {
+            margin-bottom: 8px;
+        }
+
         .promo-banner {
             background: linear-gradient(135deg, var(--secondary), #bf360c);
             color: white;
@@ -40,26 +70,45 @@
             margin-bottom: 2.5rem;
             box-shadow: 0 4px 15px rgba(230, 81, 0, 0.3);
         }
+        
+        /* Grid Produk */
         .products {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
             gap: 2rem;
             margin-bottom: 3rem;
         }
+        
+        /* Gaya Baru: Card dengan Gambar */
         .card {
             background: white;
             border: 1px solid #e0e0e0;
             border-radius: 12px;
-            padding: 1.5rem;
+            overflow: hidden; /* Agar gambar mengikuti lekukan card */
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
         .card:hover {
             transform: translateY(-5px);
         }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover; /* Memastikan gambar tidak gepeng */
+            background-color: #eaeaea;
+        }
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
         .card h3 {
-            margin-top: 0;
+            margin: 10px 0 5px 0;
             color: var(--primary);
         }
         .badge {
@@ -76,7 +125,7 @@
             font-size: 1.4rem;
             color: #c0392b;
             font-weight: bold;
-            margin: 15px 0;
+            margin: 10px 0;
         }
         .btn {
             background-color: #27ae60;
@@ -126,6 +175,23 @@
     </header>
 
     <div class="container">
+        
+        <!-- BAGIAN BARU: Visi & Misi UMKM -->
+        <div class="about-section">
+            <div class="about-box">
+                <h3>Visi Kami</h3>
+                <p>Menjadi pelopor minuman kesehatan tradisional yang modern, higienis, dan terpercaya dalam mendukung gaya hidup sehat masyarakat Indonesia secara alami.</p>
+            </div>
+            <div class="about-box">
+                <h3>Misi Kami</h3>
+                <ul>
+                    <li>Menggunakan 100% bahan baku rempah pilihan kualitas terbaik tanpa bahan pengawet kimia.</li>
+                    <li>Melestarikan warisan jamu nusantara melalui kemasan dan varian produk yang praktis dan kekinian.</li>
+                    <li>Memberikan pelayanan terbaik dan edukasi manfaat herbal secara konsisten kepada pelanggan.</li>
+                </ul>
+            </div>
+        </div>
+
         <!-- Promosi Section -->
         <div class="promo-banner">
             <h2>🔥 PROMO SEHAT MINGGU INI 🔥</h2>
@@ -136,40 +202,70 @@
         <!-- Katalog Produk -->
         <h2 style="text-align: center; margin-bottom: 2rem;">Menu Minuman Kesehatan</h2>
         <div class="products">
+            
             <!-- Produk 1 -->
             <div class="card">
-                <span class="badge">Best Seller ⭐</span>
-                <h3>Jamu Kunyit Asam</h3>
-                <p>Menyegarkan badan, kaya antioksidan, dan melancarkan pencernaan.</p>
-                <div class="price">Rp 15.000</div>
-                <button class="btn" onclick="beliProduk('Kunyit Asam', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                <!-- GAMBAR BARU (Menggunakan Placeholder Unsplash) -->
+                <img src="https://images.unsplash.com/photo-1615485290382-441e4d019cb0?w=500&auto=format&fit=crop&q=60" alt="Kunyit Asam" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Best Seller ⭐</span>
+                        <h3>Jamu Kunyit Asam</h3>
+                        <p>Menyegarkan badan, kaya antioksidan, dan melancarkan pencernaan.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 15.000</div>
+                        <button class="btn" onclick="beliProduk('Kunyit Asam', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
             </div>
             
             <!-- Produk 2 -->
             <div class="card">
-                <span class="badge">Favorit 👍</span>
-                <h3>Jamu Beras Kencur</h3>
-                <p>Menambah stamina, menghilangkan pegal-pegal, dan meredakan batuk.</p>
-                <div class="price">Rp 15.000</div>
-                <button class="btn" onclick="beliProduk('Beras Kencur', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                <img src="https://images.unsplash.com/photo-1544816155-12df9643f363?w=500&auto=format&fit=crop&q=60" alt="Beras Kencur" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Favorit 👍</span>
+                        <h3>Jamu Beras Kencur</h3>
+                        <p>Menambah stamina, menghilangkan pegal-pegal, dan meredakan batuk.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 15.000</div>
+                        <button class="btn" onclick="beliProduk('Beras Kencur', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Produk 3 -->
             <div class="card">
-                <span class="badge">Hangat 🪵</span>
-                <h3>Wedang Uwuh Asli</h3>
-                <p>Rempah utuh (secang, jahe, cengkeh). Menghangatkan & menangkal masuk angin.</p>
-                <div class="price">Rp 12.000</div>
-                <button class="btn" onclick="beliProduk('Wedang Uwuh', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                <img src="https://images.unsplash.com/photo-1597362925123-77861d3fbac7?w=500&auto=format&fit=crop&q=60" alt="Wedang Uwuh" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Hangat 🪵</span>
+                        <h3>Wedang Uwuh Asli</h3>
+                        <p>Rempah utuh (secang, jahe, cengkeh). Menghangatkan & menangkal masuk angin.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 12.000</div>
+                        <button class="btn" onclick="beliProduk('Wedang Uwuh', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
             </div>
 
             <!-- Produk 4 -->
             <div class="card">
-                <span class="badge">Segar 🍋</span>
-                <h3>Wedang Jahe Lemon</h3>
-                <p>Kombinasi jahe emprit murni dan lemon segar untuk detoks racun tubuh.</p>
-                <div class="price">Rp 18.000</div>
-                <button class="btn" onclick="beliProduk('Jahe Lemon', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                <img src="https://images.unsplash.com/photo-1514733670139-4d87a1941d55?w=500&auto=format&fit=crop&q=60" alt="Jahe Lemon" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Segar 🍋</span>
+                        <h3>Wedang Jahe Lemon</h3>
+                        <p>Kombinasi jahe emprit murni dan lemon segar untuk detoks racun tubuh.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 18.000</div>
+                        <button class="btn" onclick="beliProduk('Jahe Lemon', '6281234567890')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
             </div>
         </div>
 
@@ -189,7 +285,7 @@
     </footer>
 
     <script>
-        // Inisialisasi Data Penjualan Baru
+        // Inisialisasi Data Penjualan
         let salesData = JSON.parse(localStorage.getItem('jamuSalesData')) || {
             'Kunyit Asam': 15,
             'Beras Kencur': 10,
@@ -197,29 +293,22 @@
             'Jahe Lemon': 5
         };
 
-        // Fungsi Beli Produk via WhatsApp
         function beliProduk(namaProduk, nomorWA) {
-            // 1. Catat data ke analisis
             salesData[namaProduk] = (salesData[namaProduk] || 0) + 1;
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
-            
-            // 2. Perbarui tampilan grafik
             updateChart();
 
-            // 3. Kirim chat WhatsApp
             const pesan = `Halo, saya mau pesan minuman kesehatan: *${namaProduk}*.\nApakah slot pengiriman hari ini masih ada? (Kode Promo: JAMUSEHAT)`;
             const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
             window.open(urlWA, '_blank');
         }
 
-        // Fungsi Reset Data Analisis
         function resetData() {
             salesData = { 'Kunyit Asam': 0, 'Beras Kencur': 0, 'Wedang Uwuh': 0, 'Jahe Lemon': 0 };
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
             updateChart();
         }
 
-        // Pengaturan Grafik Chart.js
         const ctx = document.getElementById('salesChart').getContext('2d');
         let chartInstance = new Chart(ctx, {
             type: 'bar',
@@ -241,7 +330,6 @@
             }
         });
 
-        // Fungsi memperbarui grafik secara instan
         function updateChart() {
             chartInstance.data.labels = Object.keys(salesData);
             chartInstance.data.datasets[0].data = Object.values(salesData);
