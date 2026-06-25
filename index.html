@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wedang Uwuh Warisan - Minuman Kesehatan</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        :root {
+            --primary: #c0392b;
+            --secondary: #d35400;
+            --bg-color: #fdfbf7;
+            --text-color: #333;
+        }
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 1.5rem;
+            text-align: center;
+        }
+        .container {
+            max-width: 1000px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        .promo-banner {
+            background: linear-gradient(135deg, var(--secondary), var(--primary));
+            color: white;
+            padding: 1.5rem;
+            border-radius: 10px;
+            text-align: center;
+            margin-bottom: 2rem;
+            animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0% { transform: scale(1); }
+            50% { transform: scale(1.02); }
+            100% { transform: scale(1); }
+        }
+        .products {
+            display: flex;
+            gap: 2rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+        .card {
+            background: white;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 1.5rem;
+            width: 300px;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 1rem;
+            text-decoration: none;
+            display: inline-block;
+            margin-top: 10px;
+        }
+        .btn:hover { background-color: #219653; }
+        
+        /* Dashboard Section */
+        .dashboard {
+            margin-top: 4rem;
+            padding: 2rem;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        canvas { max-width: 100%; height: 400px; }
+        
+        footer {
+            text-align: center;
+            padding: 1rem;
+            background: #333;
+            color: white;
+            margin-top: 3rem;
+        }
+    </style>
+</head>
+<body>
+
+    <header>
+        <h1>🌿 Wedang Uwuh Warisan</h1>
+        <p>Minuman Herbal Tradisional untuk Imunitas & Kesehatan</p>
+    </header>
+
+    <div class="container">
+        <!-- Promosi Section -->
+        <div class="promo-banner">
+            <h2>🔥 PROMO SPESIAL HARI INI! 🔥</h2>
+            <p>Beli 3 Box Wedang Uwuh, <strong>GRATIS 1 Box</strong> + Potongan Ongkir Rp 10.000!</p>
+            <p><em>Gunakan kode promo: <strong>SEHATSELALU</strong> saat memesan via WhatsApp</em></p>
+        </div>
+
+        <!-- Katalog Produk -->
+        <h2 style="text-align: center;">Katalog Produk</h2>
+        <div class="products">
+            <div class="card">
+                <h3>Paket Celup Praktis</h3>
+                <p>Isi 10 kantong. Tinggal seduh air panas, cocok untuk di kantor.</p>
+                <h2 style="color: var(--primary);">Rp 35.000</h2>
+                <!-- Ubah nomor 6281234567890 dengan nomor WA Anda -->
+                <button class="btn" onclick="beliProduk('Celup Praktis', '085775439342')">🛒 Pesan via WhatsApp</button>
+            </div>
+            
+            <div class="card">
+                <h3>Paket Tubruk Rempah Asli</h3>
+                <p>Bahan rempah utuh (Jahe, Secang, Kapulaga, dll). Rasa lebih pekat.</p>
+                <h2 style="color: var(--primary);">Rp 45.000</h2>
+                <button class="btn" onclick="beliProduk('Tubruk Rempah', '085775439342')">🛒 Pesan via WhatsApp</button>
+            </div>
+        </div>
+
+        <!-- Dashboard Analisis Section -->
+        <div class="dashboard" id="admin-dashboard">
+            <h2>📊 Dashboard Analisis Penjualan (Simulasi)</h2>
+            <p>Grafik di bawah ini akan bertambah secara otomatis setiap kali ada pelanggan yang menekan tombol "Pesan". (Data disimpan di <em>browser</em>).</p>
+            <canvas id="salesChart"></canvas>
+            <button onclick="resetData()" style="margin-top: 15px; padding: 5px 10px; background: #e74c3c; color: white; border: none; border-radius: 3px; cursor: pointer;">Reset Data Analisis</button>
+        </div>
+    </div>
+
+    <footer>
+        <p>&copy; 2026 Wedang Uwuh Warisan UMKM. Dibuat untuk Kesehatan Nusantara.</p>
+    </footer>
+
+    <script>
+        // Inisialisasi Data Penjualan dari Local Storage (Agar data tidak hilang saat di-refresh)
+        let salesData = JSON.parse(localStorage.getItem('wedangSalesData')) || {
+            'Celup Praktis': 12,
+            'Tubruk Rempah': 8
+        };
+
+        // Fungsi Beli Produk
+        function beliProduk(namaProduk, nomorWA) {
+            // 1. Tambah data analisis
+            salesData[namaProduk] = (salesData[namaProduk] || 0) + 1;
+            localStorage.setItem('wedangSalesData', JSON.stringify(salesData));
+            
+            // 2. Update Grafik
+            updateChart();
+
+            // 3. Arahkan ke WhatsApp
+            const pesan = `Halo, saya ingin memesan Wedang Uwuh varian: *${namaProduk}*. Apakah stoknya tersedia? (Kode Promo: SEHATSELALU)`;
+            const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
+            window.open(urlWA, '_blank');
+        }
+
+        // Fungsi Reset Data
+        function resetData() {
+            salesData = { 'Celup Praktis': 0, 'Tubruk Rempah': 0 };
+            localStorage.setItem('wedangSalesData', JSON.stringify(salesData));
+            updateChart();
+        }
+
+        // Konfigurasi Chart.js untuk Analisis
+        const ctx = document.getElementById('salesChart').getContext('2d');
+        let chartInstance = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: Object.keys(salesData),
+                datasets: [{
+                    label: 'Jumlah Klik Pemesanan',
+                    data: Object.values(salesData),
+                    backgroundColor: ['#c0392b', '#d35400'],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                responsive: true,
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                }
+            }
+        });
+
+        // Update Grafik secara Real-time
+        function updateChart() {
+            chartInstance.data.labels = Object.keys(salesData);
+            chartInstance.data.datasets[0].data = Object.values(salesData);
+            chartInstance.update();
+        }
+    </script>
+</body>
+</html>
