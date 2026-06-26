@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kedai Jamu & Minuman Kesehatan Tradisional</title>
+    <title>Kedai Jamu & Minuman Kesehatan Tradisional - Sukorejo Kendal</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
@@ -20,7 +20,7 @@
             color: var(--text-color);
         }
         
-        /* Gaya Baru: Top Navigation / Bar Login */
+        /* Top Navigation / Bar Login */
         .top-navbar {
             background-color: #ffffff;
             padding: 10px 2rem;
@@ -65,7 +65,7 @@
             font-size: 0.85rem;
         }
 
-        /* Gaya Modal Login */
+        /* Modal Login */
         .modal {
             display: none; 
             position: fixed; 
@@ -113,14 +113,15 @@
             font-weight: 600;
             font-size: 0.9rem;
         }
-        .form-group input {
+        .form-group input, .form-group select, .form-group textarea {
             width: 100%;
             padding: 10px;
             border: 1px solid #ccc;
             border-radius: 8px;
             box-sizing: border-box;
+            font-family: inherit;
         }
-        .form-group input:focus {
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
             border-color: var(--primary);
             outline: none;
         }
@@ -185,7 +186,7 @@
             margin-bottom: 3rem;
         }
         
-        /* Card dengan Gambar */
+        /* Card Produk */
         .card {
             background: white;
             border: 1px solid #e0e0e0;
@@ -214,9 +215,27 @@
             justify-content: space-between;
         }
         .card h3 {
-            margin: 10px 0 5px 0;
+            margin: 5px 0;
             color: var(--primary);
         }
+        
+        /* Statistik Produk (Rating & Terjual) */
+        .product-stats {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            align-items: center;
+        }
+        .stat-rating {
+            color: #f1c40f;
+            font-weight: bold;
+        }
+        .stat-separator { color: #bdc3c7; }
+        .stat-sold { font-weight: 600; color: #2c3e50; }
+
         .badge {
             background-color: #fff3e0;
             color: var(--secondary);
@@ -225,7 +244,7 @@
             font-size: 0.85rem;
             font-weight: bold;
             display: inline-block;
-            margin-bottom: 10px;
+            margin-bottom: 8px;
         }
         .price {
             font-size: 1.4rem;
@@ -249,13 +268,68 @@
         }
         .btn:hover { background-color: #219653; }
         
+        /* Section Penilaian & Ulasan */
+        .reviews-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+        }
+        .reviews-layout {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .review-form-box {
+            flex: 1;
+            min-width: 300px;
+            background: #fdfefe;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+        .reviews-list-box {
+            flex: 2;
+            min-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .review-card {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--primary);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .review-user { font-weight: bold; color: #2c3e50;}
+        .review-product { font-size: 0.8rem; background: #e8f5e9; color: var(--primary); padding: 2px 8px; border-radius: 10px;}
+        .review-stars { color: #f1c40f; font-size: 0.9rem; margin-bottom: 5px;}
+        .review-comment { font-size: 0.95rem; color: #555; font-style: italic;}
+        .login-notice {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff3e0;
+            color: #e65100;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
         /* Dashboard Section */
         .dashboard {
             background: white;
             border-radius: 12px;
             padding: 2rem;
             box-shadow: 0 4px 12px rgba(0,0,0,0.08);
-            margin-top: 4rem;
+            margin-top: 3rem;
         }
         .chart-container {
             position: relative;
@@ -275,10 +349,9 @@
 </head>
 <body>
 
-    <!-- BAR NAVIGASI UNTUK LOGIN USER -->
+    <!-- BAR NAVIGASI LOGIN -->
     <div class="top-navbar">
         <div class="auth-container" id="authContainer">
-            <!-- Isi Konten di-render dinamis oleh JavaScript -->
             <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>
         </div>
     </div>
@@ -286,6 +359,8 @@
     <header>
         <h1>🌿 Kedai Jamu & Minuman Sehat Tradisional</h1>
         <p>100% Alami, Segar, dan Berkhasiat untuk Menjaga Imunitas Tubuh Anda</p>
+        <!-- LOKASI DI HEADER -->
+        <p style="font-size: 0.95rem; margin-top: 8px; opacity: 0.9;">📍 Alamat: Sukorejo, Kendal, Jawa Tengah</p>
     </header>
 
     <div class="container">
@@ -324,6 +399,11 @@
                     <div>
                         <span class="badge">Best Seller ⭐</span>
                         <h3>Jamu Kunyit Asam</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.9</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Kunyit Asam">0</span> Terjual</span>
+                        </div>
                         <p>Menyegarkan badan, kaya antioksidan, dan melancarkan pencernaan.</p>
                     </div>
                     <div>
@@ -340,6 +420,11 @@
                     <div>
                         <span class="badge">Favorit 👍</span>
                         <h3>Jamu Beras Kencur</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.8</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Beras Kencur">0</span> Terjual</span>
+                        </div>
                         <p>Menambah stamina, menghilangkan pegal-pegal, dan meredakan batuk.</p>
                     </div>
                     <div>
@@ -356,6 +441,11 @@
                     <div>
                         <span class="badge">Hangat 🪵</span>
                         <h3>Wedang Uwuh Asli</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.7</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Wedang Uwuh">0</span> Terjual</span>
+                        </div>
                         <p>Rempah utuh (secang, jahe, cengkeh). Menghangatkan & menangkal masuk angin.</p>
                     </div>
                     <div>
@@ -372,12 +462,35 @@
                     <div>
                         <span class="badge">Segar 🍋</span>
                         <h3>Wedang Jahe Lemon</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.9</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Jahe Lemon">0</span> Terjual</span>
+                        </div>
                         <p>Kombinasi jahe emprit murni dan lemon segar untuk detoks racun tubuh.</p>
                     </div>
                     <div>
                         <div class="price">Rp 18.000</div>
                         <button class="btn" onclick="beliProduk('Jahe Lemon', '085775439342')">🛒 Pesan via WhatsApp</button>
                     </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION PENILAIAN & ULASAN PEMBELI -->
+        <div class="reviews-section">
+            <h2>💬 Penilaian & Ulasan Pembeli</h2>
+            <p>Lihat kepuasan pelanggan kami atau berikan penilaian Anda setelah melakukan pembelian.</p>
+            
+            <div class="reviews-layout">
+                <div class="review-form-box">
+                    <h3>Tulis Ulasan Anda</h3>
+                    <div id="reviewFormContainer">
+                        <!-- Dikontrol oleh JavaScript -->
+                    </div>
+                </div>
+                <div class="reviews-list-box" id="reviewsListBox">
+                    <!-- Dikontrol oleh JavaScript -->
                 </div>
             </div>
         </div>
@@ -391,6 +504,34 @@
             </div>
             <button onclick="resetData()" style="margin-top: 15px; padding: 8px 15px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Reset Data Analisis</button>
         </div>
+
+        <!-- FITUR BARU: SECTION INFORMASI LOKASI DETAIL -->
+        <div class="dashboard" style="margin-top: 3rem;">
+            <h2>📍 Lokasi & Kontak Kedai</h2>
+            <p>Silakan kunjungi kedai fisik kami untuk menikmati sajian jamu tradisional hangat & segar secara langsung di tempat.</p>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; text-align: left;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="color: var(--primary); margin-top: 0;">Alamat Utama:</h3>
+                    <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">Kedai Jamu Tradisional Sukorejo</p>
+                    <p style="margin-top: 0; color: #555; line-height: 1.6;">
+                        Jl. Raya Sukorejo - Kendal, Kec. Sukorejo,<br>
+                        Kabupaten Kendal, Jawa Tengah 51363
+                    </p>
+                    <h3 style="color: var(--primary); margin-bottom: 5px;">Jam Operasional:</h3>
+                    <p style="margin-top: 0; color: #555; font-weight: 500;">Setiap Hari: 08.00 - 21.00 WIB</p>
+                </div>
+                <div style="flex: 1.5; min-width: 300px; background: #ffffff; border-radius: 12px; height: 230px; display: flex; align-items: center; justify-content: center; border: 1px solid #e0e0e0; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);">
+                    <!-- Kotak Simulasi Peta Google Maps -->
+                    <div style="text-align: center; padding: 20px;">
+                        <span style="font-size: 2.5rem;">🗺️</span>
+                        <h4 style="margin: 10px 0 5px 0; color: var(--text-color);">Peta Sukorejo, Kendal</h4>
+                        <p style="font-size: 0.85rem; color: #7f8c8d; margin: 0 0 15px 0;">Klik tombol di bawah ini untuk membuka petunjuk arah / navigasi langsung.</p>
+                        <a href="https://maps.google.com/?q=Sukorejo+Kendal" target="_blank" class="btn" style="display: inline-block; width: auto; background-color: var(--secondary); padding: 8px 20px; font-size: 0.9rem;">Buka Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
     </div>
 
     <!-- MODAL FORM LOGIN USER PEMBELI -->
@@ -413,28 +554,34 @@
     </div>
 
     <footer>
-        <p>&copy; 2026 Kedai Jamu Tradisional Terpercaya. Sehat Alami Setiap Hari.</p>
+        <p>&copy; 2026 Kedai Jamu Tradisional Terpercaya - Sukorejo, Kendal. Sehat Alami Setiap Hari.</p>
     </footer>
 
     <script>
         // Inisialisasi Data Penjualan
         let salesData = JSON.parse(localStorage.getItem('jamuSalesData')) || {
-            'Kunyit Asam': 15,
-            'Beras Kencur': 10,
-            'Wedang Uwuh': 8,
-            'Jahe Lemon': 5
+            'Kunyit Asam': 18,
+            'Beras Kencur': 14,
+            'Wedang Uwuh': 9,
+            'Jahe Lemon': 6
         };
 
-        // --- SISTEM LOGIN LOGIC ---
+        // Inisialisasi Data Ulasan
+        let defaultReviews = [
+            { name: "Siti Rahma", product: "Jamu Kunyit Asam", rating: 5, comment: "Rasa kunyit asamnya pas banget, segar dan gak terlalu manis. Cocok buat langganan!" },
+            { name: "Ahmad Fauzi", product: "Wedang Jahe Lemon", rating: 5, comment: "Anget banget di tenggorokan, pas badan lagi meriang langsung seger minum ini." },
+            { name: "Dewi Lestari", product: "Jamu Beras Kencur", rating: 4, comment: "Pegal-pegal di badan hilang setelah minum ini semalam. Mantap!" }
+        ];
+        let reviewsData = JSON.parse(localStorage.getItem('jamuReviewsData')) || defaultReviews;
+
         const loginModal = document.getElementById('loginModal');
         const authContainer = document.getElementById('authContainer');
+        const reviewFormContainer = document.getElementById('reviewFormContainer');
+        const reviewsListBox = document.getElementById('reviewsListBox');
 
         function toggleModal(show) {
-            if (show) {
-                loginModal.classList.add('show');
-            } else {
-                loginModal.classList.remove('show');
-            }
+            if (show) loginModal.classList.add('show');
+            else loginModal.classList.remove('show');
         }
 
         function handleLogin(event) {
@@ -442,18 +589,19 @@
             const username = document.getElementById('username').value;
             const phone = document.getElementById('phone').value;
 
-            // Simpan data pembeli ke localStorage
             const userData = { name: username, phone: phone };
             localStorage.setItem('currentUserJamu', JSON.stringify(userData));
 
             toggleModal(false);
             renderAuth();
-            alert(`Selamat datang, ${username}! Silakan pilih menu jamu kesukaan Anda.`);
+            renderReviewForm();
+            alert(`Selamat datang, ${username}! Sekarang Anda bisa memesan dan memberikan penilaian.`);
         }
 
         function handleLogout() {
             localStorage.removeItem('currentUserJamu');
             renderAuth();
+            renderReviewForm();
             alert('Anda telah keluar dari akun.');
         }
 
@@ -472,14 +620,93 @@
                 `;
             }
         }
-        // -------------------------
+
+        function renderReviewForm() {
+            const user = JSON.parse(localStorage.getItem('currentUserJamu'));
+            if (user) {
+                reviewFormContainer.innerHTML = `
+                    <form onsubmit="submitReview(event)">
+                        <div class="form-group">
+                            <label>Pilih Minuman</label>
+                            <select id="revProduct" required>
+                                <option value="Jamu Kunyit Asam">Jamu Kunyit Asam</option>
+                                <option value="Jamu Beras Kencur">Jamu Beras Kencur</option>
+                                <option value="Wedang Uwuh Asli">Wedang Uwuh Asli</option>
+                                <option value="Wedang Jahe Lemon">Wedang Jahe Lemon</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Berikan Rating Bintang</label>
+                            <select id="revRating" required>
+                                <option value="5">⭐⭐⭐⭐⭐ (5 - Sangat Puas)</option>
+                                <option value="4">⭐⭐⭐⭐ (4 - Puas)</option>
+                                <option value="3">⭐⭐⭐ (3 - Cukup)</option>
+                                <option value="2">⭐⭐ (2 - Kurang)</option>
+                                <option value="1">⭐ (1 - Buruk)</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <label>Tulis Ulasan / Komentar</label>
+                            <textarea id="revComment" rows="3" required placeholder="Ceritakan pengalaman rasa jamu kami..."></textarea>
+                        </div>
+                        <button type="submit" class="btn" style="background-color: var(--primary);">Kirim Penilaian</button>
+                    </form>
+                `;
+            } else {
+                reviewFormContainer.innerHTML = `
+                    <div class="login-notice">
+                        Silakan masuk akun terlebih dahulu untuk memberikan penilaian pembelian Anda.
+                        <br><br>
+                        <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Sekarang</button>
+                    </div>
+                `;
+            }
+        }
+
+        function submitReview(event) {
+            event.preventDefault();
+            const user = JSON.parse(localStorage.getItem('currentUserJamu'));
+            const product = document.getElementById('revProduct').value;
+            const rating = parseInt(document.getElementById('revRating').value);
+            const comment = document.getElementById('revComment').value;
+
+            const newReview = {
+                name: user.name,
+                product: product,
+                rating: rating,
+                comment: comment
+            };
+
+            reviewsData.unshift(newReview);
+            localStorage.setItem('jamuReviewsData', JSON.stringify(reviewsData));
+            
+            renderReviewsList();
+            document.getElementById('revComment').value = '';
+            alert('Terima kasih! Penilaian Anda telah berhasil diterbitkan.');
+        }
+
+        function renderReviewsList() {
+            reviewsListBox.innerHTML = '';
+            reviewsData.forEach(rev => {
+                let starsString = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
+                reviewsListBox.innerHTML += `
+                    <div class="review-card">
+                        <div class="review-header">
+                            <span class="review-user">${rev.name}</span>
+                            <span class="review-product">${rev.product}</span>
+                        </div>
+                        <div class="review-stars">${starsString}</div>
+                        <div class="review-comment">"${rev.comment}"</div>
+                    </div>
+                `;
+            });
+        }
 
         function beliProduk(namaProduk, nomorWA) {
             salesData[namaProduk] = (salesData[namaProduk] || 0) + 1;
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
-            updateChart();
+            updateUI();
 
-            // Mengambil info pembeli jika sudah login
             const user = JSON.parse(localStorage.getItem('currentUserJamu'));
             const identitasPembeli = user ? `Saya *${user.name}* (${user.phone})` : 'Saya';
 
@@ -491,10 +718,13 @@
         function resetData() {
             salesData = { 'Kunyit Asam': 0, 'Beras Kencur': 0, 'Wedang Uwuh': 0, 'Jahe Lemon': 0 };
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
-            updateChart();
+            localStorage.setItem('jamuReviewsData', JSON.stringify(defaultReviews));
+            reviewsData = defaultReviews;
+            updateUI();
+            renderReviewsList();
         }
 
-        // Setup Chart
+        // Setup Chart.js
         const ctx = document.getElementById('salesChart').getContext('2d');
         let chartInstance = new Chart(ctx, {
             type: 'bar',
@@ -516,15 +746,24 @@
             }
         });
 
-        function updateChart() {
+        function updateUI() {
             chartInstance.data.labels = Object.keys(salesData);
             chartInstance.data.datasets[0].data = Object.values(salesData);
             chartInstance.update();
+
+            document.querySelectorAll('[data-id]').forEach(element => {
+                const productId = element.getAttribute('data-id');
+                if (salesData[productId] !== undefined) {
+                    element.innerText = salesData[productId];
+                }
+            });
         }
 
-        // Cek status login saat halaman pertama kali dimuat
         document.addEventListener('DOMContentLoaded', () => {
             renderAuth();
+            renderReviewForm();
+            renderReviewsList();
+            updateUI();
         });
     </script>
 </body>
