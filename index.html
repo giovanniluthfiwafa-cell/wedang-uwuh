@@ -19,6 +19,112 @@
             background-color: var(--bg-color);
             color: var(--text-color);
         }
+        
+        /* Gaya Baru: Top Navigation / Bar Login */
+        .top-navbar {
+            background-color: #ffffff;
+            padding: 10px 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .auth-container {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+        }
+        .user-logged {
+            font-weight: 600;
+            color: var(--text-color);
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-danger-sm {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Gaya Modal Login */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); 
+            align-items: center;
+            justify-content: center;
+        }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #95a5a6;
+        }
+        .close-modal:hover { color: #34495e; }
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .form-group input {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+        }
+        .form-group input:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
         header {
             background-color: var(--primary);
             color: white;
@@ -32,7 +138,7 @@
             padding: 2rem;
         }
         
-        /* Gaya Baru: Visi & Misi */
+        /* Visi & Misi */
         .about-section {
             display: flex;
             gap: 2rem;
@@ -79,12 +185,12 @@
             margin-bottom: 3rem;
         }
         
-        /* Gaya Baru: Card dengan Gambar */
+        /* Card dengan Gambar */
         .card {
             background: white;
             border: 1px solid #e0e0e0;
             border-radius: 12px;
-            overflow: hidden; /* Agar gambar mengikuti lekukan card */
+            overflow: hidden;
             text-align: center;
             box-shadow: 0 4px 8px rgba(0,0,0,0.05);
             transition: transform 0.2s;
@@ -97,7 +203,7 @@
         .product-img {
             width: 100%;
             height: 180px;
-            object-fit: cover; /* Memastikan gambar tidak gepeng */
+            object-fit: cover;
             background-color: #eaeaea;
         }
         .card-content {
@@ -169,6 +275,14 @@
 </head>
 <body>
 
+    <!-- BAR NAVIGASI UNTUK LOGIN USER -->
+    <div class="top-navbar">
+        <div class="auth-container" id="authContainer">
+            <!-- Isi Konten di-render dinamis oleh JavaScript -->
+            <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>
+        </div>
+    </div>
+
     <header>
         <h1>🌿 Kedai Jamu & Minuman Sehat Tradisional</h1>
         <p>100% Alami, Segar, dan Berkhasiat untuk Menjaga Imunitas Tubuh Anda</p>
@@ -176,7 +290,7 @@
 
     <div class="container">
         
-        <!-- BAGIAN BARU: Visi & Misi UMKM -->
+        <!-- BAGIAN: Visi & Misi UMKM -->
         <div class="about-section">
             <div class="about-box">
                 <h3>Visi Kami</h3>
@@ -205,8 +319,7 @@
             
             <!-- Produk 1 -->
             <div class="card">
-                <!-- GAMBAR BARU (Menggunakan Placeholder Unsplash) -->
-               <img src="kunyit.jpg" alt="Kunyit Asam" class="kunyit.jpg">
+               <img src="kunyit.jpg" alt="Kunyit Asam" class="product-img">
                 <div class="card-content">
                     <div>
                         <span class="badge">Best Seller ⭐</span>
@@ -222,7 +335,7 @@
             
             <!-- Produk 2 -->
             <div class="card">
-                  <img src="kencur.jpg" alt="Kunyit Asam" class="kencur.jpg">
+                  <img src="kencur.jpg" alt="Beras Kencur" class="product-img">
                 <div class="card-content">
                     <div>
                         <span class="badge">Favorit 👍</span>
@@ -238,7 +351,7 @@
 
             <!-- Produk 3 -->
             <div class="card">
-                 <img src="uwuh.jpg" alt="Kunyit Asam" class="uwuh.jpg">
+                 <img src="uwuh.jpg" alt="Wedang Uwuh Asli" class="product-img">
                 <div class="card-content">
                     <div>
                         <span class="badge">Hangat 🪵</span>
@@ -254,7 +367,7 @@
 
             <!-- Produk 4 -->
             <div class="card">
-                 <img src="jahe.jpg" alt="Kunyit Asam" class="jahe.jpg">
+                 <img src="jahe.jpg" alt="Wedang Jahe Lemon" class="product-img">
                 <div class="card-content">
                     <div>
                         <span class="badge">Segar 🍋</span>
@@ -280,6 +393,25 @@
         </div>
     </div>
 
+    <!-- MODAL FORM LOGIN USER PEMBELI -->
+    <div id="loginModal" class="modal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="toggleModal(false)">&times;</span>
+            <h2 style="color: var(--primary); text-align: center; margin-top: 0; margin-bottom: 1.5rem;">Masuk Akun Pembeli</h2>
+            <form id="loginForm" onsubmit="handleLogin(event)">
+                <div class="form-group">
+                    <label for="username">Nama Lengkap Pembeli</label>
+                    <input type="text" id="username" required placeholder="Contoh: Budi Santoso">
+                </div>
+                <div class="form-group">
+                    <label for="phone">Nomor Telepon/WA Anda</label>
+                    <input type="tel" id="phone" required placeholder="Contoh: 08123456789">
+                </div>
+                <button type="submit" class="btn" style="background-color: var(--secondary); margin-top: 10px;">Masuk Sekarang</button>
+            </form>
+        </div>
+    </div>
+
     <footer>
         <p>&copy; 2026 Kedai Jamu Tradisional Terpercaya. Sehat Alami Setiap Hari.</p>
     </footer>
@@ -293,12 +425,65 @@
             'Jahe Lemon': 5
         };
 
+        // --- SISTEM LOGIN LOGIC ---
+        const loginModal = document.getElementById('loginModal');
+        const authContainer = document.getElementById('authContainer');
+
+        function toggleModal(show) {
+            if (show) {
+                loginModal.classList.add('show');
+            } else {
+                loginModal.classList.remove('show');
+            }
+        }
+
+        function handleLogin(event) {
+            event.preventDefault();
+            const username = document.getElementById('username').value;
+            const phone = document.getElementById('phone').value;
+
+            // Simpan data pembeli ke localStorage
+            const userData = { name: username, phone: phone };
+            localStorage.setItem('currentUserJamu', JSON.stringify(userData));
+
+            toggleModal(false);
+            renderAuth();
+            alert(`Selamat datang, ${username}! Silakan pilih menu jamu kesukaan Anda.`);
+        }
+
+        function handleLogout() {
+            localStorage.removeItem('currentUserJamu');
+            renderAuth();
+            alert('Anda telah keluar dari akun.');
+        }
+
+        function renderAuth() {
+            const user = JSON.parse(localStorage.getItem('currentUserJamu'));
+            if (user) {
+                authContainer.innerHTML = `
+                    <div class="user-logged">
+                        <span>👋 Halo, <strong>${user.name}</strong></span>
+                        <button class="btn-danger-sm" onclick="handleLogout()">Keluar</button>
+                    </div>
+                `;
+            } else {
+                authContainer.innerHTML = `
+                    <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>
+                `;
+            }
+        }
+        // -------------------------
+
         function beliProduk(namaProduk, nomorWA) {
             salesData[namaProduk] = (salesData[namaProduk] || 0) + 1;
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
             updateChart();
 
-            const pesan = `Halo, saya mau pesan minuman kesehatan: *${namaProduk}*.\nApakah slot pengiriman hari ini masih ada? (Kode Promo: JAMUSEHAT)`;
+            // Mengambil info pembeli jika sudah login
+            const user = JSON.parse(localStorage.getItem('currentUserJamu'));
+            const identitasPembeli = user ? `Saya *${user.name}* (${user.phone})` : 'Saya';
+
+            const pesan = `Halo, ${identitasPembeli} mau pesan minuman kesehatan: *${namaProduk}*.\nApakah slot pengiriman hari ini masih ada? (Kode Promo: JAMUSEHAT)`;
             const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(pesan)}`;
             window.open(urlWA, '_blank');
         }
@@ -309,6 +494,7 @@
             updateChart();
         }
 
+        // Setup Chart
         const ctx = document.getElementById('salesChart').getContext('2d');
         let chartInstance = new Chart(ctx, {
             type: 'bar',
@@ -335,6 +521,11 @@
             chartInstance.data.datasets[0].data = Object.values(salesData);
             chartInstance.update();
         }
+
+        // Cek status login saat halaman pertama kali dimuat
+        document.addEventListener('DOMContentLoaded', () => {
+            renderAuth();
+        });
     </script>
 </body>
 </html>
