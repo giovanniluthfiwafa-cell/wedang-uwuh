@@ -3,97 +3,44 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Dashboard - Warung Jamu Benggol</title>
+    <title>Warung Jamu Benggol - Minuman Kesehatan Tradisional Sukorejo Kendal</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <style>
         :root {
             --primary: #2e7d32; /* Hijau Herbal */
-            --primary-dark: #1b5e20;
             --secondary: #e65100; /* Oranye Rempah */
-            --bg-color: #f4f6f9;
-            --sidebar-bg: #2c3e50;
-            --text-dark: #2c3e50;
-            --text-light: #ecf0f1;
-            --card-bg: #ffffff;
+            --bg-color: #f9f6f0;
+            --text-color: #2c3e50;
         }
-
         body {
             font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
             background-color: var(--bg-color);
-            color: var(--text-dark);
+            color: var(--text-color);
+        }
+        
+        /* Top Navigation / Bar Login */
+        .top-navbar {
+            background-color: #ffffff;
+            padding: 10px 2rem;
             display: flex;
-            height: 100vh;
-            overflow: hidden;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
         }
-
-        /* --- SIDEBAR --- */
-        .sidebar {
-            width: 260px;
-            background-color: var(--sidebar-bg);
-            color: var(--text-light);
+        .auth-container {
             display: flex;
-            flex-direction: column;
-            transition: all 0.3s ease;
+            align-items: center;
+            gap: 15px;
         }
-        .sidebar-brand {
-            padding: 20px;
-            font-size: 1.4rem;
-            font-weight: bold;
-            background-color: #1a252f;
-            text-align: center;
-            border-bottom: 2px solid var(--primary);
-        }
-        .sidebar-menu {
-            list-style: none;
-            padding: 0;
-            margin: 20px 0;
-        }
-        .sidebar-menu li {
-            padding: 15px 25px;
-            cursor: pointer;
-            font-size: 1.05rem;
-            border-left: 4px solid transparent;
-            transition: all 0.2s;
+        .user-logged {
+            font-weight: 600;
+            color: var(--text-color);
             display: flex;
             align-items: center;
             gap: 10px;
         }
-        .sidebar-menu li:hover {
-            background-color: #34495e;
-        }
-        .sidebar-menu li.active {
-            background-color: #34495e;
-            border-left-color: var(--primary);
-            font-weight: bold;
-        }
-
-        /* --- MAIN CONTENT --- */
-        .main-wrapper {
-            flex: 1;
-            display: flex;
-            flex-direction: column;
-            overflow: hidden;
-        }
-
-        /* TOPBAR */
-        .topbar {
-            background-color: #fff;
-            height: 60px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 30px;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
-            z-index: 10;
-        }
-        .topbar-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-        }
-        .auth-container { display: flex; align-items: center; gap: 15px; }
-        
         .btn-outline {
             background: transparent;
             border: 2px solid var(--primary);
@@ -104,405 +51,675 @@
             font-weight: bold;
             transition: all 0.3s;
         }
-        .btn-outline:hover { background-color: var(--primary); color: white; }
-        .btn-danger-sm {
-            background-color: #e74c3c; color: white; border: none; padding: 5px 10px; border-radius: 5px; cursor: pointer; font-size: 0.85rem;
-        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: whiteBerikut adalah pembaruan kode HTML lengkap yang telah disesuaikan dengan menambahkan nama **Warung Jamu Benggol** pada judul halaman (Tab Browser), Header Utama, Bagian Alamat, dan Footer.
 
-        /* CONTENT AREA */
-        .content-area {
-            flex: 1;
-            padding: 30px;
-            overflow-y: auto;
-        }
+### Full Code HTML yang Diperbarui:
 
-        /* Tab Content Control */
-        .tab-content { display: none; animation: fadeIn 0.4s; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
-
-        /* --- DASHBOARD WIDGETS --- */
-        .widget-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 20px;
-            margin-bottom: 30px;
+```html
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Warung Jamu Benggol - Sukorejo Kendal</title>
+    <script src="[https://cdn.jsdelivr.net/npm/chart.js](https://cdn.jsdelivr.net/npm/chart.js)"></script>
+    <style>
+        :root {
+            --primary: #2e7d32; /* Hijau Herbal */
+            --secondary: #e65100; /* Oranye Rempah */
+            --bg-color: #f9f6f0;
+            --text-color: #2c3e50;
         }
-        .widget-card {
-            background: var(--card-bg);
-            padding: 20px;
-            border-radius: 10px;
-            box-shadow: 0 4px 6px rgba(0,0,0,0.05);
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+        }
+        
+        /* Top Navigation / Bar Login */
+        .top-navbar {
+            background-color: #ffffff;
+            padding: 10px 2rem;
+            display: flex;
+            justify-content: flex-end;
+            align-items: center;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.05);
+        }
+        .auth-container {
             display: flex;
             align-items: center;
-            gap: 20px;
+            gap: 15px;
         }
-        .widget-icon {
-            width: 60px;
-            height: 60px;
-            border-radius: 15px;
+        .user-logged {
+            font-weight: 600;
+            color: var(--text-color);
             display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+        .btn-outline {
+            background: transparent;
+            border: 2px solid var(--primary);
+            color: var(--primary);
+            padding: 6px 15px;
+            border-radius: 20px;
+            cursor: pointer;
+            font-weight: bold;
+            transition: all 0.3s;
+        }
+        .btn-outline:hover {
+            background-color: var(--primary);
+            color: white;
+        }
+        .btn-danger-sm {
+            background-color: #e74c3c;
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 0.85rem;
+        }
+
+        /* Modal Login */
+        .modal {
+            display: none; 
+            position: fixed; 
+            z-index: 2000; 
+            left: 0;
+            top: 0;
+            width: 100%; 
+            height: 100%; 
+            background-color: rgba(0,0,0,0.5); 
             align-items: center;
             justify-content: center;
-            font-size: 2rem;
         }
-        .w-green { background: #e8f5e9; color: var(--primary); }
-        .w-orange { background: #fff3e0; color: var(--secondary); }
-        .w-blue { background: #e3f2fd; color: #1976d2; }
+        .modal.show {
+            display: flex;
+        }
+        .modal-content {
+            background-color: #fff;
+            padding: 2.5rem;
+            border-radius: 15px;
+            width: 100%;
+            max-width: 380px;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+            position: relative;
+            animation: slideDown 0.3s ease;
+        }
+        @keyframes slideDown {
+            from { transform: translateY(-30px); opacity: 0; }
+            to { transform: translateY(0); opacity: 1; }
+        }
+        .close-modal {
+            position: absolute;
+            top: 15px;
+            right: 20px;
+            font-size: 1.5rem;
+            cursor: pointer;
+            color: #95a5a6;
+        }
+        .close-modal:hover { color: #34495e; }
+        .form-group {
+            margin-bottom: 1.25rem;
+        }
+        .form-group label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+        .form-group input, .form-group select, .form-group textarea {
+            width: 100%;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            box-sizing: border-box;
+            font-family: inherit;
+        }
+        .form-group input:focus, .form-group select:focus, .form-group textarea:focus {
+            border-color: var(--primary);
+            outline: none;
+        }
+
+        header {
+            background-color: var(--primary);
+            color: white;
+            padding: 2.5rem 1.5rem;
+            text-align: center;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        .container {
+            max-width: 1100px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
         
-        .widget-info h4 { margin: 0; font-size: 0.9rem; color: #7f8c8d; }
-        .widget-info h2 { margin: 5px 0 0 0; font-size: 1.8rem; color: var(--text-dark); }
-
-        /* Chart Card */
-        .chart-card {
-            background: var(--card-bg); padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05);
-            margin-bottom: 30px;
+        /* Visi & Misi */
+        .about-section {
+            display: flex;
+            gap: 2rem;
+            background: white;
+            padding: 2rem;
+            border-radius: 12px;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            flex-wrap: wrap;
         }
-        .chart-container { position: relative; height: 350px; width: 100%; }
+        .about-box {
+            flex: 1;
+            min-width: 280px;
+        }
+        .about-box h3 {
+            color: var(--primary);
+            border-left: 4px solid var(--secondary);
+            padding-left: 10px;
+            margin-top: 0;
+        }
+        .about-box ul {
+            padding-left: 20px;
+            margin: 0;
+        }
+        .about-box li {
+            margin-bottom: 8px;
+        }
 
-        /* --- PRODUCTS GRID --- */
+        .promo-banner {
+            background: linear-gradient(135deg, var(--secondary), #bf360c);
+            color: white;
+            padding: 1.5rem;
+            border-radius: 12px;
+            text-align: center;
+            margin-bottom: 2.5rem;
+            box-shadow: 0 4px 15px rgba(230, 81, 0, 0.3);
+        }
+        
+        /* Grid Produk */
         .products {
-            display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 20px;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+            gap: 2rem;
+            margin-bottom: 3rem;
         }
+        
+        /* Card Produk */
         .card {
-            background: white; border-radius: 10px; overflow: hidden; text-align: center; box-shadow: 0 4px 8px rgba(0,0,0,0.05);
-            transition: transform 0.2s; display: flex; flex-direction: column;
+            background: white;
+            border: 1px solid #e0e0e0;
+            border-radius: 12px;
+            overflow: hidden;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0,0,0,0.05);
+            transition: transform 0.2s;
+            display: flex;
+            flex-direction: column;
         }
-        .card:hover { transform: translateY(-5px); }
-        .product-img { width: 100%; height: 160px; object-fit: cover; background-color: #eaeaea; }
-        .card-content { padding: 1.5rem; flex-grow: 1; display: flex; flex-direction: column; justify-content: space-between; }
-        .card h3 { margin: 5px 0; color: var(--primary); }
-        .badge { background-color: #fff3e0; color: var(--secondary); padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; font-weight: bold; display: inline-block; margin-bottom: 8px; }
-        .price { font-size: 1.3rem; color: #c0392b; font-weight: bold; margin: 10px 0; }
-        .btn { background-color: var(--primary); color: white; border: none; padding: 10px; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; }
-        .btn:hover { background-color: var(--primary-dark); }
-
-        /* --- REVIEWS SECTION --- */
-        .reviews-layout { display: flex; gap: 20px; flex-wrap: wrap; }
-        .review-box { flex: 1; min-width: 300px; background: white; padding: 20px; border-radius: 10px; box-shadow: 0 4px 6px rgba(0,0,0,0.05); }
-        .review-list { max-height: 400px; overflow-y: auto; padding-right: 10px; }
-        .review-card { background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 15px; border-left: 4px solid var(--primary); }
+        .card:hover {
+            transform: translateY(-5px);
+        }
+        .product-img {
+            width: 100%;
+            height: 180px;
+            object-fit: cover;
+            background-color: #eaeaea;
+        }
+        .card-content {
+            padding: 1.5rem;
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+        .card h3 {
+            margin: 5px 0;
+            color: var(--primary);
+        }
         
-        /* Modal & Forms */
-        .form-group { margin-bottom: 1rem; }
-        .form-group label { display: block; margin-bottom: 5px; font-weight: bold; font-size: 0.9rem; }
-        .form-group input, .form-group select, .form-group textarea { width: 100%; padding: 10px; border: 1px solid #ccc; border-radius: 5px; box-sizing: border-box; }
-        
-        .modal { display: none; position: fixed; z-index: 2000; left: 0; top: 0; width: 100%; height: 100%; background-color: rgba(0,0,0,0.5); align-items: center; justify-content: center; }
-        .modal.show { display: flex; }
-        .modal-content { background-color: #fff; padding: 2rem; border-radius: 10px; width: 100%; max-width: 400px; position: relative; }
-        .close-modal { position: absolute; top: 15px; right: 20px; font-size: 1.5rem; cursor: pointer; }
+        /* Statistik Produk (Rating & Terjual) */
+        .product-stats {
+            font-size: 0.85rem;
+            color: #7f8c8d;
+            margin-bottom: 10px;
+            display: flex;
+            justify-content: center;
+            gap: 8px;
+            align-items: center;
+        }
+        .stat-rating {
+            color: #f1c40f;
+            font-weight: bold;
+        }
+        .stat-separator { color: #bdc3c7; }
+        .stat-sold { font-weight: 600; color: #2c3e50; }
 
-        .promo-banner { background: linear-gradient(135deg, var(--secondary), #bf360c); color: white; padding: 1rem 1.5rem; border-radius: 10px; margin-bottom: 20px; box-shadow: 0 4px 10px rgba(230, 81, 0, 0.2); display: flex; justify-content: space-between; align-items: center;}
+        .badge {
+            background-color: #fff3e0;
+            color: var(--secondary);
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: bold;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+        .price {
+            font-size: 1.4rem;
+            color: #c0392b;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        .btn {
+            background-color: #27ae60;
+            color: white;
+            border: none;
+            padding: 12px 20px;
+            border-radius: 8px;
+            cursor: pointer;
+            font-size: 0.95rem;
+            font-weight: bold;
+            text-decoration: none;
+            display: block;
+            width: 100%;
+            box-sizing: border-box;
+        }
+        .btn:hover { background-color: #219653; }
+        
+        /* Section Penilaian & Ulasan */
+        .reviews-section {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+        }
+        .reviews-layout {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+            margin-top: 1.5rem;
+        }
+        .review-form-box {
+            flex: 1;
+            min-width: 300px;
+            background: #fdfefe;
+            padding: 1.5rem;
+            border: 1px solid #e2e8f0;
+            border-radius: 10px;
+        }
+        .reviews-list-box {
+            flex: 2;
+            min-width: 300px;
+            max-height: 400px;
+            overflow-y: auto;
+            padding-right: 10px;
+        }
+        .review-card {
+            background: #f8f9fa;
+            padding: 12px 15px;
+            border-radius: 8px;
+            margin-bottom: 12px;
+            border-left: 5px solid var(--primary);
+        }
+        .review-header {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.9rem;
+            margin-bottom: 5px;
+        }
+        .review-user { font-weight: bold; color: #2c3e50;}
+        .review-product { font-size: 0.8rem; background: #e8f5e9; color: var(--primary); padding: 2px 8px; border-radius: 10px;}
+        .review-stars { color: #f1c40f; font-size: 0.9rem; margin-bottom: 5px;}
+        .review-comment { font-size: 0.95rem; color: #555; font-style: italic;}
+        .login-notice {
+            text-align: center;
+            padding: 1.5rem;
+            background: #fff3e0;
+            color: #e65100;
+            border-radius: 8px;
+            font-weight: 600;
+        }
+
+        /* Dashboard Section */
+        .dashboard {
+            background: white;
+            border-radius: 12px;
+            padding: 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+            margin-top: 3rem;
+        }
+        .chart-container {
+            position: relative;
+            margin: auto;
+            height: 350px;
+            width: 100%;
+        }
+        
+        footer {
+            text-align: center;
+            padding: 1.5rem;
+            background: #263238;
+            color: #cfd8dc;
+            margin-top: 4rem;
+        }
     </style>
 </head>
 <body>
 
-    <!-- SIDEBAR NAVIGASI -->
-    <aside class="sidebar">
-        <div class="sidebar-brand">🌿 Jamu Benggol</div>
-        <ul class="sidebar-menu">
-            <li class="active" onclick="switchTab('dashboard', this)">📊 Ringkasan Penjualan</li>
-            <li onclick="switchTab('katalog', this)">🛒 Katalog Menu</li>
-            <li onclick="switchTab('ulasan', this)">💬 Ulasan Pelanggan</li>
-            <li onclick="switchTab('lokasi', this)">📍 Lokasi Warung</li>
-        </ul>
-    </aside>
-
-    <!-- MAIN CONTENT -->
-    <div class="main-wrapper">
-        <!-- TOPBAR -->
-        <header class="topbar">
-            <div class="topbar-title" id="topbarTitle">Dashboard Analisis</div>
-            <div class="auth-container" id="authContainer">
-                <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>
-            </div>
-        </header>
-
-        <!-- AREA KONTEN (TAB) -->
-        <main class="content-area">
-
-            <!-- TAB 1: DASHBOARD (Ringkasan) -->
-            <div id="tab-dashboard" class="tab-content active">
-                <div class="promo-banner">
-                    <div>
-                        <h3 style="margin: 0 0 5px 0;">🔥 Promo Beli 3 Gratis 1!</h3>
-                        <p style="margin: 0; font-size: 0.9rem;">Gunakan kode: <strong>BENGGOLSEHAT</strong> saat memesan.</p>
-                    </div>
-                    <button class="btn" style="width: auto; background: white; color: var(--secondary);" onclick="document.querySelector('.sidebar-menu li:nth-child(2)').click()">Pesan Sekarang</button>
-                </div>
-
-                <!-- Widgets -->
-                <div class="widget-grid">
-                    <div class="widget-card">
-                        <div class="widget-icon w-green">📦</div>
-                        <div class="widget-info">
-                            <h4>Total Terjual (Simulasi)</h4>
-                            <h2 id="totalSold">0</h2>
-                        </div>
-                    </div>
-                    <div class="widget-card">
-                        <div class="widget-icon w-orange">🍵</div>
-                        <div class="widget-info">
-                            <h4>Varian Menu</h4>
-                            <h2>4</h2>
-                        </div>
-                    </div>
-                    <div class="widget-card">
-                        <div class="widget-icon w-blue">⭐</div>
-                        <div class="widget-info">
-                            <h4>Total Ulasan</h4>
-                            <h2 id="totalReviews">0</h2>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Grafik Analisis -->
-                <div class="chart-card">
-                    <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px;">
-                        <h3 style="margin: 0; color: var(--primary);">Grafik Minat Menu Jamu</h3>
-                        <button onclick="resetData()" class="btn-danger-sm">🔄 Reset Data</button>
-                    </div>
-                    <div class="chart-container">
-                        <canvas id="salesChart"></canvas>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 2: KATALOG PRODUK -->
-            <div id="tab-katalog" class="tab-content">
-                <h2 style="margin-top: 0; color: var(--text-dark);">Katalog Menu Minuman</h2>
-                <p style="color: #7f8c8d; margin-bottom: 20px;">Pilih jamu kesukaan Anda, pesan langsung via WhatsApp ke admin kami.</p>
-                
-                <div class="products">
-                    <!-- Produk 1 -->
-                    <div class="card">
-                        <div style="background: #e0e0e0; height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">💛</div>
-                        <div class="card-content">
-                            <div>
-                                <span class="badge">Best Seller ⭐</span>
-                                <h3>Kunyit Asam</h3>
-                                <p style="font-size: 0.85rem; color: #7f8c8d;">Terjual: <span data-id="Kunyit Asam" style="font-weight: bold; color: var(--text-dark);">0</span></p>
-                            </div>
-                            <div>
-                                <div class="price">Rp 15.000</div>
-                                <button class="btn" onclick="beliProduk('Kunyit Asam', '085775439342')">🛒 Pesan via WA</button>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <!-- Produk 2 -->
-                    <div class="card">
-                        <div style="background: #e0e0e0; height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🍚</div>
-                        <div class="card-content">
-                            <div>
-                                <span class="badge">Favorit 👍</span>
-                                <h3>Beras Kencur</h3>
-                                <p style="font-size: 0.85rem; color: #7f8c8d;">Terjual: <span data-id="Beras Kencur" style="font-weight: bold; color: var(--text-dark);">0</span></p>
-                            </div>
-                            <div>
-                                <div class="price">Rp 15.000</div>
-                                <button class="btn" onclick="beliProduk('Beras Kencur', '085775439342')">🛒 Pesan via WA</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Produk 3 -->
-                    <div class="card">
-                        <div style="background: #e0e0e0; height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🪵</div>
-                        <div class="card-content">
-                            <div>
-                                <span class="badge">Hangat 🔥</span>
-                                <h3>Wedang Uwuh</h3>
-                                <p style="font-size: 0.85rem; color: #7f8c8d;">Terjual: <span data-id="Wedang Uwuh" style="font-weight: bold; color: var(--text-dark);">0</span></p>
-                            </div>
-                            <div>
-                                <div class="price">Rp 12.000</div>
-                                <button class="btn" onclick="beliProduk('Wedang Uwuh', '085775439342')">🛒 Pesan via WA</button>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Produk 4 -->
-                    <div class="card">
-                        <div style="background: #e0e0e0; height: 150px; display: flex; align-items: center; justify-content: center; font-size: 3rem;">🍋</div>
-                        <div class="card-content">
-                            <div>
-                                <span class="badge">Segar ❄️</span>
-                                <h3>Jahe Lemon</h3>
-                                <p style="font-size: 0.85rem; color: #7f8c8d;">Terjual: <span data-id="Jahe Lemon" style="font-weight: bold; color: var(--text-dark);">0</span></p>
-                            </div>
-                            <div>
-                                <div class="price">Rp 18.000</div>
-                                <button class="btn" onclick="beliProduk('Jahe Lemon', '085775439342')">🛒 Pesan via WA</button>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 3: ULASAN -->
-            <div id="tab-ulasan" class="tab-content">
-                <h2 style="margin-top: 0;">Penilaian & Ulasan</h2>
-                <div class="reviews-layout">
-                    <div class="review-box" id="reviewFormContainer">
-                        <!-- Form Ulasan via JS -->
-                    </div>
-                    <div class="review-box">
-                        <h3 style="margin-top: 0;">Daftar Ulasan Masuk</h3>
-                        <div class="review-list" id="reviewsListBox">
-                            <!-- List Ulasan via JS -->
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- TAB 4: LOKASI WARUNG -->
-            <div id="tab-lokasi" class="tab-content">
-                <div class="chart-card" style="display: flex; gap: 20px; flex-wrap: wrap;">
-                    <div style="flex: 1; min-width: 300px;">
-                        <h2 style="margin-top: 0; color: var(--primary);">Lokasi Fisik Warung</h2>
-                        <p style="font-weight: bold; font-size: 1.2rem;">Warung Jamu Benggol</p>
-                        <p style="line-height: 1.6; color: #555;">
-                            Jl. Raya Sukorejo - Kendal, Kec. Sukorejo,<br>
-                            Kabupaten Kendal, Jawa Tengah 51363
-                        </p>
-                        <h4 style="margin-bottom: 5px;">Jam Operasional:</h4>
-                        <p style="margin-top: 0; color: #555;">Setiap Hari: 08.00 - 21.00 WIB</p>
-                    </div>
-                    <div style="flex: 1; min-width: 300px; background: #f8f9fa; border: 1px solid #ddd; border-radius: 10px; display: flex; align-items: center; justify-content: center; flex-direction: column; padding: 30px; text-align: center;">
-                        <span style="font-size: 3rem;">🗺️</span>
-                        <h3>Peta Google Maps</h3>
-                        <a href="https://maps.google.com/?q=Sukorejo+Kendal" target="_blank" class="btn" style="width: auto; padding: 10px 20px; background: var(--secondary);">Buka Navigasi Map</a>
-                    </div>
-                </div>
-            </div>
-
-        </main>
+    <!-- BAR NAVIGASI LOGIN -->
+    <div class="top-navbar">
+        <div class="auth-container" id="authContainer">
+            <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>
+        </div>
     </div>
 
-    <!-- MODAL LOGIN -->
+    <!-- NAMA WARUNG DI HEADER -->
+    <header>
+        <h1>🌿 Warung Jamu Benggol</h1>
+        <p>Kedai Minuman Kesehatan Tradisional - 100% Alami, Segar, dan Berkhasiat</p>
+        <p style="font-size: 0.95rem; margin-top: 8px; opacity: 0.9;">📍 Alamat: Sukorejo, Kendal, Jawa Tengah</p>
+    </header>
+
+    <div class="container">
+        
+        <!-- BAGIAN: Visi & Misi UMKM -->
+        <div class="about-section">
+            <div class="about-box">
+                <h3>Visi Kami</h3>
+                <p>Menjadi pelopor minuman kesehatan tradisional yang modern, higienis, dan terpercaya dalam mendukung gaya hidup sehat masyarakat Indonesia secara alami.</p>
+            </div>
+            <div class="about-box">
+                <h3>Misi Kami</h3>
+                <ul>
+                    <li>Menggunakan 100% bahan baku rempah pilihan kualitas terbaik tanpa bahan pengawet kimia.</li>
+                    <li>Melestarikan warisan jamu nusantara melalui kemasan dan varian produk yang praktis dan kekinian.</li>
+                    <li>Memberikan pelayanan terbaik dan edukasi manfaat herbal secara konsisten kepada pelanggan.</li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Promosi Section -->
+        <div class="promo-banner">
+            <h2>🔥 PROMO SEHAT MINGGU INI 🔥</h2>
+            <p>Beli <strong>3 Botol Jamu Varian Apa Saja</strong>, GRATIS 1 Bungkus Wedang Uwuh Rempah!</p>
+            <p>Ketik kode promo: <strong style="background: yellow; color: black; padding: 2px 6px; border-radius: 4px;">BENGGOLSEHAT</strong> saat memesan.</p>
+        </div>
+
+        <!-- Katalog Produk -->
+        <h2 style="text-align: center; margin-bottom: 2rem;">Menu Minuman Kesehatan</h2>
+        <div class="products">
+            
+            <!-- Produk 1 -->
+            <div class="card">
+               <img src="kunyit.jpg" alt="Kunyit Asam" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Best Seller ⭐</span>
+                        <h3>Jamu Kunyit Asam</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.9</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Kunyit Asam">0</span> Terjual</span>
+                        </div>
+                        <p>Menyegarkan badan, kaya antioksidan, dan melancarkan pencernaan.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 15.000</div>
+                        <button class="btn" onclick="beliProduk('Kunyit Asam', '085775439342')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Produk 2 -->
+            <div class="card">
+                  <img src="kencur.jpg" alt="Beras Kencur" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Favorit 👍</span>
+                        <h3>Jamu Beras Kencur</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.8</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Beras Kencur">0</span> Terjual</span>
+                        </div>
+                        <p>Menambah stamina, menghilangkan pegal-pegal, dan meredakan batuk.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 15.000</div>
+                        <button class="btn" onclick="beliProduk('Beras Kencur', '085775439342')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 3 -->
+            <div class="card">
+                 <img src="uwuh.jpg" alt="Wedang Uwuh Asli" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Hangat 🪵</span>
+                        <h3>Wedang Uwuh Asli</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.7</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Wedang Uwuh">0</span> Terjual</span>
+                        </div>
+                        <p>Rempah utuh (secang, jahe, cengkeh). Menghangatkan & menangkal masuk angin.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 12.000</div>
+                        <button class="btn" onclick="beliProduk('Wedang Uwuh', '085775439342')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Produk 4 -->
+            <div class="card">
+                 <img src="jahe.jpg" alt="Wedang Jahe Lemon" class="product-img">
+                <div class="card-content">
+                    <div>
+                        <span class="badge">Segar 🍋</span>
+                        <h3>Wedang Jahe Lemon</h3>
+                        <div class="product-stats">
+                            <span class="stat-rating">★ 4.9</span>
+                            <span class="stat-separator">|</span>
+                            <span class="stat-sold"><span data-id="Jahe Lemon">0</span> Terjual</span>
+                        </div>
+                        <p>Kombinasi jahe emprit murni dan lemon segar untuk detoks racun tubuh.</p>
+                    </div>
+                    <div>
+                        <div class="price">Rp 18.000</div>
+                        <button class="btn" onclick="beliProduk('Jahe Lemon', '085775439342')">🛒 Pesan via WhatsApp</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- SECTION PENILAIAN & ULASAN PEMBELI -->
+        <div class="reviews-section">
+            <h2>💬 Penilaian & Ulasan Pembeli</h2>
+            <p>Lihat kepuasan pelanggan kami atau berikan penilaian Anda setelah melakukan pembelian di Warung Jamu Benggol.</p>
+            
+            <div class="reviews-layout">
+                <div class="review-form-box">
+                    <h3>Tulis Ulasan Anda</h3>
+                    <div id="reviewFormContainer">
+                        <!-- Dikontrol oleh JavaScript -->
+                    </div>
+                </div>
+                <div class="reviews-list-box" id="reviewsListBox">
+                    <!-- Dikontrol oleh JavaScript -->
+                </div>
+            </div>
+        </div>
+
+        <!-- Dashboard Analisis Section -->
+        <div class="dashboard">
+            <h2>📊 Analisis Minuman Paling Diminati (Simulasi)</h2>
+            <p>Grafik ini memantau menu jamu mana yang paling sering diklik/dipesan oleh pelanggan Anda.</p>
+            <div class="chart-container">
+                <canvas id="salesChart"></canvas>
+            </div>
+            <button onclick="resetData()" style="margin-top: 15px; padding: 8px 15px; background: #e74c3c; color: white; border: none; border-radius: 5px; cursor: pointer; font-weight: bold;">Reset Data Analisis</button>
+        </div>
+
+        <!-- SECTION INFORMASI LOKASI DETAIL -->
+        <div class="dashboard" style="margin-top: 3rem;">
+            <h2>📍 Lokasi & Kontak Warung</h2>
+            <p>Silakan kunjungi warung fisik kami untuk menikmati sajian jamu tradisional hangat & segar secara langsung di tempat.</p>
+            <div style="display: flex; gap: 2rem; flex-wrap: wrap; margin-top: 1.5rem; text-align: left;">
+                <div style="flex: 1; min-width: 280px;">
+                    <h3 style="color: var(--primary); margin-top: 0;">Alamat Utama:</h3>
+                    <!-- NAMA WARUNG DI BAGIAN ALAMAT -->
+                    <p style="font-weight: 600; font-size: 1.1rem; margin-bottom: 5px;">Warung Jamu Benggol</p>
+                    <p style="margin-top: 0; color: #555; line-height: 1.6;">
+                        Jl. Raya Sukorejo - Kendal, Kec. Sukorejo,<br>
+                        Kabupaten Kendal, Jawa Tengah 51363
+                    </p>
+                    <h3 style="color: var(--primary); margin-bottom: 5px;">Jam Operasional:</h3>
+                    <p style="margin-top: 0; color: #555; font-weight: 500;">Setiap Hari: 08.00 - 21.00 WIB</p>
+                </div>
+                <div style="flex: 1.5; min-width: 300px; background: #ffffff; border-radius: 12px; height: 230px; display: flex; align-items: center; justify-content: center; border: 1px solid #e0e0e0; box-shadow: inset 0 0 10px rgba(0,0,0,0.02);">
+                    <!-- Kotak Simulasi Peta Google Maps -->
+                    <div style="text-align: center; padding: 20px;">
+                        <span style="font-size: 2.5rem;">🗺️</span>
+                        <h4 style="margin: 10px 0 5px 0; color: var(--text-color);">Peta Sukorejo, Kendal</h4>
+                        <p style="font-size: 0.85rem; color: #7f8c8d; margin: 0 0 15px 0;">Klik tombol di bawah ini untuk membuka petunjuk arah / navigasi langsung.</p>
+                        <a href="[https://maps.google.com/?q=Sukorejo+Kendal](https://maps.google.com/?q=Sukorejo+Kendal)" target="_blank" class="btn" style="display: inline-block; width: auto; background-color: var(--secondary); padding: 8px 20px; font-size: 0.9rem;">Buka Google Maps</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- MODAL FORM LOGIN USER PEMBELI -->
     <div id="loginModal" class="modal">
         <div class="modal-content">
             <span class="close-modal" onclick="toggleModal(false)">&times;</span>
-            <h2 style="color: var(--primary); text-align: center; margin-top: 0;">Masuk Dashboard</h2>
+            <h2 style="color: var(--primary); text-align: center; margin-top: 0; margin-bottom: 1.5rem;">Masuk Akun Pembeli</h2>
             <form id="loginForm" onsubmit="handleLogin(event)">
                 <div class="form-group">
-                    <label>Nama Lengkap</label>
-                    <input type="text" id="username" required placeholder="Budi Santoso">
+                    <label for="username">Nama Lengkap Pembeli</label>
+                    <input type="text" id="username" required placeholder="Contoh: Budi Santoso">
                 </div>
                 <div class="form-group">
-                    <label>Nomor WA / Telepon</label>
-                    <input type="tel" id="phone" required placeholder="08123456789">
+                    <label for="phone">Nomor Telepon/WA Anda</label>
+                    <input type="tel" id="phone" required placeholder="Contoh: 08123456789">
                 </div>
-                <button type="submit" class="btn" style="margin-top: 10px;">Masuk Sistem</button>
+                <button type="submit" class="btn" style="background-color: var(--secondary); margin-top: 10px;">Masuk Sekarang</button>
             </form>
         </div>
     </div>
 
+    <!-- NAMA WARUNG DI FOOTER -->
+    <footer>
+        <p>&copy; 2026 Warung Jamu Benggol - Sukorejo, Kendal. Sehat Alami Setiap Hari.</p>
+    </footer>
+
     <script>
-        // --- DATA INITIALIZATION ---
+        // Inisialisasi Data Penjualan
         let salesData = JSON.parse(localStorage.getItem('jamuSalesData')) || {
-            'Kunyit Asam': 18, 'Beras Kencur': 14, 'Wedang Uwuh': 9, 'Jahe Lemon': 6
+            'Kunyit Asam': 18,
+            'Beras Kencur': 14,
+            'Wedang Uwuh': 9,
+            'Jahe Lemon': 6
         };
+
+        // Inisialisasi Data Ulasan
         let defaultReviews = [
-            { name: "Siti Rahma", product: "Jamu Kunyit Asam", rating: 5, comment: "Rasa kunyit asamnya pas banget, segar." },
-            { name: "Ahmad Fauzi", product: "Wedang Jahe Lemon", rating: 5, comment: "Anget banget di tenggorokan, mantap." }
+            { name: "Siti Rahma", product: "Jamu Kunyit Asam", rating: 5, comment: "Rasa kunyit asamnya pas banget, segar dan gak terlalu manis. Cocok buat langganan!" },
+            { name: "Ahmad Fauzi", product: "Wedang Jahe Lemon", rating: 5, comment: "Anget banget di tenggorokan, pas badan lagi meriang langsung seger minum ini." },
+            { name: "Dewi Lestari", product: "Jamu Beras Kencur", rating: 4, comment: "Pegal-pegal di badan hilang setelah minum ini semalam. Mantap!" }
         ];
         let reviewsData = JSON.parse(localStorage.getItem('jamuReviewsData')) || defaultReviews;
 
-        // --- TAB NAVIGATION ---
-        const tabTitles = {
-            'dashboard': 'Dashboard Analisis',
-            'katalog': 'Katalog Menu Minuman',
-            'ulasan': 'Penilaian & Ulasan Pelanggan',
-            'lokasi': 'Informasi Lokasi & Kontak'
-        };
+        const loginModal = document.getElementById('loginModal');
+        const authContainer = document.getElementById('authContainer');
+        const reviewFormContainer = document.getElementById('reviewFormContainer');
+        const reviewsListBox = document.getElementById('reviewsListBox');
 
-        function switchTab(tabId, element) {
-            // Ubah class active di sidebar
-            document.querySelectorAll('.sidebar-menu li').forEach(li => li.classList.remove('active'));
-            element.classList.add('active');
-
-            // Ubah konten tab
-            document.querySelectorAll('.tab-content').forEach(tab => tab.classList.remove('active'));
-            document.getElementById('tab-' + tabId).classList.add('active');
-
-            // Ubah judul Topbar
-            document.getElementById('topbarTitle').innerText = tabTitles[tabId];
-        }
-
-        // --- LOGIN SYSTEM ---
         function toggleModal(show) {
-            document.getElementById('loginModal').classList.toggle('show', show);
+            if (show) loginModal.classList.add('show');
+            else loginModal.classList.remove('show');
         }
 
         function handleLogin(event) {
             event.preventDefault();
-            const userData = {
-                name: document.getElementById('username').value,
-                phone: document.getElementById('phone').value
-            };
+            const username = document.getElementById('username').value;
+            const phone = document.getElementById('phone').value;
+
+            const userData = { name: username, phone: phone };
             localStorage.setItem('currentUserJamu', JSON.stringify(userData));
+
             toggleModal(false);
             renderAuth();
             renderReviewForm();
+            alert(`Selamat datang, ${username}! Sekarang Anda bisa memesan dan memberikan penilaian.`);
         }
 
         function handleLogout() {
             localStorage.removeItem('currentUserJamu');
             renderAuth();
             renderReviewForm();
+            alert('Anda telah keluar dari akun.');
         }
 
         function renderAuth() {
             const user = JSON.parse(localStorage.getItem('currentUserJamu'));
-            const authContainer = document.getElementById('authContainer');
             if (user) {
                 authContainer.innerHTML = `
-                    <span style="font-weight: 500;">👋 Halo, ${user.name}</span>
-                    <button class="btn-danger-sm" onclick="handleLogout()">Keluar</button>
+                    <div class="user-logged">
+                        <span>👋 Halo, <strong>${user.name}</strong></span>
+                        <button class="btn-danger-sm" onclick="handleLogout()">Keluar</button>
+                    </div>
                 `;
             } else {
-                authContainer.innerHTML = `<button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>`;
+                authContainer.innerHTML = `
+                    <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Akun</button>
+                `;
             }
         }
 
-        // --- REVIEWS SYSTEM ---
         function renderReviewForm() {
             const user = JSON.parse(localStorage.getItem('currentUserJamu'));
-            const formContainer = document.getElementById('reviewFormContainer');
             if (user) {
-                formContainer.innerHTML = `
-                    <h3 style="margin-top: 0;">Tulis Ulasan Anda</h3>
+                reviewFormContainer.innerHTML = `
                     <form onsubmit="submitReview(event)">
                         <div class="form-group">
-                            <label>Menu yang dibeli</label>
+                            <label>Pilih Minuman</label>
                             <select id="revProduct" required>
-                                <option>Kunyit Asam</option><option>Beras Kencur</option>
-                                <option>Wedang Uwuh</option><option>Jahe Lemon</option>
+                                <option value="Jamu Kunyit Asam">Jamu Kunyit Asam</option>
+                                <option value="Jamu Beras Kencur">Jamu Beras Kencur</option>
+                                <option value="Wedang Uwuh Asli">Wedang Uwuh Asli</option>
+                                <option value="Wedang Jahe Lemon">Wedang Jahe Lemon</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Rating (1-5)</label>
+                            <label>Berikan Rating Bintang</label>
                             <select id="revRating" required>
-                                <option value="5">⭐⭐⭐⭐⭐</option>
-                                <option value="4">⭐⭐⭐⭐</option>
-                                <option value="3">⭐⭐⭐</option>
+                                <option value="5">⭐⭐⭐⭐⭐ (5 - Sangat Puas)</option>
+                                <option value="4">⭐⭐⭐⭐ (4 - Puas)</option>
+                                <option value="3">⭐⭐⭐ (3 - Cukup)</option>
+                                <option value="2">⭐⭐ (2 - Kurang)</option>
+                                <option value="1">⭐ (1 - Buruk)</option>
                             </select>
                         </div>
                         <div class="form-group">
-                            <label>Komentar</label>
-                            <textarea id="revComment" rows="3" required></textarea>
+                            <label>Tulis Ulasan / Komentar</label>
+                            <textarea id="revComment" rows="3" required placeholder="Ceritakan pengalaman rasa jamu kami..."></textarea>
                         </div>
-                        <button type="submit" class="btn">Kirim Ulasan</button>
+                        <button type="submit" class="btn" style="background-color: var(--primary);">Kirim Penilaian</button>
                     </form>
                 `;
             } else {
-                formContainer.innerHTML = `
-                    <div style="background: #fff3e0; padding: 20px; border-radius: 8px; text-align: center; color: var(--secondary);">
-                        <strong>Silakan Masuk Akun</strong><br>Anda harus masuk untuk menulis ulasan.<br><br>
-                        <button class="btn" style="width: auto;" onclick="toggleModal(true)">Masuk Sekarang</button>
+                reviewFormContainer.innerHTML = `
+                    <div class="login-notice">
+                        Silakan masuk akun terlebih dahulu untuk memberikan penilaian pembelian Anda.
+                        <br><br>
+                        <button class="btn-outline" onclick="toggleModal(true)">🔑 Masuk Sekarang</button>
                     </div>
                 `;
             }
@@ -511,103 +728,104 @@
         function submitReview(event) {
             event.preventDefault();
             const user = JSON.parse(localStorage.getItem('currentUserJamu'));
-            const newRev = {
+            const product = document.getElementById('revProduct').value;
+            const rating = parseInt(document.getElementById('revRating').value);
+            const comment = document.getElementById('revComment').value;
+
+            const newReview = {
                 name: user.name,
-                product: document.getElementById('revProduct').value,
-                rating: parseInt(document.getElementById('revRating').value),
-                comment: document.getElementById('revComment').value
+                product: product,
+                rating: rating,
+                comment: comment
             };
-            reviewsData.unshift(newRev);
+
+            reviewsData.unshift(newReview);
             localStorage.setItem('jamuReviewsData', JSON.stringify(reviewsData));
-            document.getElementById('revComment').value = '';
+            
             renderReviewsList();
-            updateDashboardStats();
-            alert('Ulasan berhasil dikirim!');
+            document.getElementById('revComment').value = '';
+            alert('Terima kasih! Penilaian Anda telah berhasil diterbitkan.');
         }
 
         function renderReviewsList() {
-            const list = document.getElementById('reviewsListBox');
-            list.innerHTML = '';
+            reviewsListBox.innerHTML = '';
             reviewsData.forEach(rev => {
-                let stars = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
-                list.innerHTML += `
+                let starsString = '★'.repeat(rev.rating) + '☆'.repeat(5 - rev.rating);
+                reviewsListBox.innerHTML += `
                     <div class="review-card">
-                        <div style="display:flex; justify-content:space-between;">
-                            <strong>${rev.name}</strong>
-                            <span style="font-size: 0.8rem; background: #e8f5e9; color: green; padding: 2px 6px; border-radius: 5px;">${rev.product}</span>
+                        <div class="review-header">
+                            <span class="review-user">${rev.name}</span>
+                            <span class="review-product">${rev.product}</span>
                         </div>
-                        <div style="color: #f1c40f; font-size: 0.9rem; margin: 5px 0;">${stars}</div>
-                        <div style="color: #555; font-size: 0.9rem; font-style: italic;">"${rev.comment}"</div>
+                        <div class="review-stars">${starsString}</div>
+                        <div class="review-comment">"${rev.comment}"</div>
                     </div>
                 `;
             });
         }
 
-        // --- PEMBELIAN & STATISTIK ---
         function beliProduk(namaProduk, nomorWA) {
             salesData[namaProduk] = (salesData[namaProduk] || 0) + 1;
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
-            updateDashboardStats();
-            updateChart();
+            updateUI();
 
             const user = JSON.parse(localStorage.getItem('currentUserJamu'));
-            const identitas = user ? `Saya *${user.name}*` : 'Saya';
-            const urlWA = `https://wa.me/${nomorWA}?text=${encodeURIComponent(`Halo, ${identitas} mau pesan: *${namaProduk}*. Promo (BENGGOLSEHAT).`)}`;
+            const identitasPembeli = user ? `Saya *${user.name}* (${user.phone})` : 'Saya';
+
+            const pesan = `Halo, ${identitasPembeli} mau pesan minuman kesehatan: *${namaProduk}*.\nApakah slot pengiriman hari ini masih ada? (Kode Promo: BENGGOLSEHAT)`;
+            const urlWA = `[https://wa.me/$](https://wa.me/$){nomorWA}?text=${encodeURIComponent(pesan)}`;
             window.open(urlWA, '_blank');
         }
 
         function resetData() {
             salesData = { 'Kunyit Asam': 0, 'Beras Kencur': 0, 'Wedang Uwuh': 0, 'Jahe Lemon': 0 };
             localStorage.setItem('jamuSalesData', JSON.stringify(salesData));
-            updateDashboardStats();
-            updateChart();
+            localStorage.setItem('jamuReviewsData', JSON.stringify(defaultReviews));
+            reviewsData = defaultReviews;
+            updateUI();
+            renderReviewsList();
         }
 
-        function updateDashboardStats() {
-            // Update total terjual
-            const totalTerjual = Object.values(salesData).reduce((a, b) => a + b, 0);
-            document.getElementById('totalSold').innerText = totalTerjual;
-            
-            // Update total ulasan
-            document.getElementById('totalReviews').innerText = reviewsData.length;
-
-            // Update badge di produk
-            document.querySelectorAll('[data-id]').forEach(el => {
-                const id = el.getAttribute('data-id');
-                if (salesData[id] !== undefined) el.innerText = salesData[id];
-            });
-        }
-
-        // --- CHART.JS SETUP ---
+        // Setup Chart.js
         const ctx = document.getElementById('salesChart').getContext('2d');
         let chartInstance = new Chart(ctx, {
             type: 'bar',
             data: {
                 labels: Object.keys(salesData),
                 datasets: [{
-                    label: 'Total Pesanan (Simulasi)',
+                    label: 'Total Klik Pemesanan',
                     data: Object.values(salesData),
                     backgroundColor: ['#2e7d32', '#e65100', '#bf360c', '#f57c00'],
                     borderRadius: 5
                 }]
             },
             options: {
-                responsive: true, maintainAspectRatio: false,
-                scales: { y: { beginAtZero: true, ticks: { stepSize: 1 } } }
+                responsive: true,
+                maintainAspectRatio: false,
+                scales: {
+                    y: { beginAtZero: true, ticks: { stepSize: 1 } }
+                }
             }
         });
 
-        function updateChart() {
+        function updateUI() {
+            chartInstance.data.labels = Object.keys(salesData);
             chartInstance.data.datasets[0].data = Object.values(salesData);
             chartInstance.update();
+
+            document.querySelectorAll('[data-id]').forEach(element => {
+                const productId = element.getAttribute('data-id');
+                if (salesData[productId] !== undefined) {
+                    element.innerText = salesData[productId];
+                }
+            });
         }
 
-        // --- INIT ---
         document.addEventListener('DOMContentLoaded', () => {
             renderAuth();
             renderReviewForm();
             renderReviewsList();
-            updateDashboardStats();
+            updateUI();
         });
     </script>
 </body>
